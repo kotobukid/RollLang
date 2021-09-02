@@ -1,7 +1,12 @@
 mod token;
 
 fn main() {
-    println!("Hello, world!");
+    let a = token::Token {
+        cat: String::from("letter"),
+        literal: String::from("A"),
+    };
+
+    println!("{} / {}", a.cat, a.literal);
     println!("{}", token::sum_in_module(100, 200))
 }
 
