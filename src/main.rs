@@ -1,5 +1,8 @@
+mod token;
+
 fn main() {
     println!("Hello, world!");
+    println!("{}", token::sum_in_module(100, 200))
 }
 
 fn sum(a: i32, b: i32) -> i32 {
@@ -16,5 +19,10 @@ mod tests {
     #[test]
     fn sum() {
         assert_eq!(100 + 200, super::sum(100, 200))
+    }
+
+    #[test]
+    fn token_sum() {
+        assert_eq!(100 + 200, super::token::sum_in_module(100, 200))
     }
 }
