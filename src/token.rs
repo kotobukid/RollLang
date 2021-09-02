@@ -14,7 +14,6 @@ pub struct Token {
     pub literal: String,
 }
 
-#[derive(Debug)]
 pub enum Cat {
     ILLEGAL,
     EOF,
@@ -37,8 +36,24 @@ pub enum Cat {
     LET,
 }
 
-// impl fmt::Display for Cat {
-//     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
-//         write!(f, "{}", self)
-//     }
-// }
+impl fmt::Display for Cat {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        match *self {
+            Cat::ILLEGAL => write!(f, "ILLEGAL"),
+            Cat::EOF => write!(f, "EOF"),
+            Cat::IDENT => write!(f, "IDENT"),
+            Cat::INT => write!(f, "INT"),
+            Cat::ASSIGN => write!(f, "ASSIGN"),
+            Cat::PLUS => write!(f, "PLUS"),
+            Cat::COMMA => write!(f, "COMMA"),
+            Cat::SEMICOLON => write!(f, "SEMICOLON"),
+            Cat::LPAREN => write!(f, "LPAREN"),
+            Cat::RPAREN => write!(f, "RPAREN"),
+            Cat::LBRACE => write!(f, "LBRACE"),
+            Cat::RBRACE => write!(f, "RBRACE"),
+            Cat::FUNCTION => write!(f, "FUNCTION"),
+            Cat::LET => write!(f, "LET"),
+            _ => write!(f, "unknown token")
+        }
+    }
+}
